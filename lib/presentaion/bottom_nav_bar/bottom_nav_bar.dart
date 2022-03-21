@@ -37,39 +37,42 @@ class _BottomNavBarState extends State<BottomNavBar> {
           topLeft: Radius.circular(15.0),
           topRight: Radius.circular(15.0),
         ),
-        child: BottomNavigationBar(
-          currentIndex: _selectedIndex,
-          onTap: _onTap,
-          elevation: 10.0,
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: ThemePalate.deepOrangeShadeColor,
-          iconSize: 27,
-          showSelectedLabels: true,
-          showUnselectedLabels: true,
-          selectedItemColor: ThemePalate.deepOrangeColor,
-          unselectedItemColor: ThemePalate.whiteColor,
-          unselectedLabelStyle: Theme.of(context).textTheme.bodyText1?.copyWith(
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
+        child: SizedBox(
+          child: BottomNavigationBar(
+            currentIndex: _selectedIndex,
+            onTap: _onTap,
+            elevation: 10.0,
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: ThemePalate.deepOrangeShadeColor,
+            iconSize: 27,
+            showSelectedLabels: true,
+            showUnselectedLabels: true,
+            selectedItemColor: ThemePalate.deepOrangeColor,
+            unselectedItemColor: ThemePalate.whiteColor,
+            unselectedLabelStyle:
+                Theme.of(context).textTheme.bodyText1?.copyWith(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
+            selectedLabelStyle: Theme.of(context).textTheme.bodyText1?.copyWith(
+                  fontSize: 12.8,
+                  fontWeight: FontWeight.w800,
+                ),
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.shop_2_outlined,
+                ),
+                label: 'Product',
               ),
-          selectedLabelStyle: Theme.of(context).textTheme.bodyText1?.copyWith(
-                fontSize: 12.8,
-                fontWeight: FontWeight.w800,
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.production_quantity_limits,
+                ),
+                label: 'Cart',
               ),
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.shop_2_outlined,
-              ),
-              label: 'Product',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.production_quantity_limits,
-              ),
-              label: 'Cart',
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

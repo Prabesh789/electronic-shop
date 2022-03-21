@@ -1,8 +1,8 @@
 import 'package:electronic_shop/theme/theme_palatte.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class ProductScreen extends StatelessWidget {
+  const ProductScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,10 +11,9 @@ class HomeScreen extends StatelessWidget {
       appBar: PreferredSize(
         child: Container(
           padding: EdgeInsets.only(top: mediaQuery.padding.top),
-          child: Padding(
-            padding: const EdgeInsets.only(left: 30.0, top: 20.0, bottom: 20.0),
+          child: Center(
             child: Text(
-              'Electronic Shop',
+              'Electronic product',
               style: Theme.of(context).textTheme.headline3,
             ),
           ),
@@ -34,7 +33,7 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
-        preferredSize: Size(mediaQuery.size.width, 150.0),
+        preferredSize: Size(mediaQuery.size.width, kToolbarHeight),
       ),
     );
   }

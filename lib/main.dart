@@ -1,4 +1,4 @@
-import 'package:electronic_shop/presentaion/home_screen.dart';
+import 'package:electronic_shop/presentaion/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:electronic_shop/theme/theme_palatte.dart';
 import 'package:flutter/material.dart';
 
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const HomeScreen(),
+      home: const BottomNavBar(),
     );
   }
 }

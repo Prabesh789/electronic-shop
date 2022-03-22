@@ -18,7 +18,7 @@ class ProductResponse with _$ProductResponse {
 @freezed
 class ProductData with _$ProductData {
   const factory ProductData({
-    required List<Product>? product,
+    required List<Product> product,
   }) = _ProductData;
   factory ProductData.fromJson(Map<String, dynamic> json) =>
       _$ProductDataFromJson(json);

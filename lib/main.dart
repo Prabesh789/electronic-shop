@@ -1,6 +1,8 @@
+import 'package:electronic_shop/application/product_provider.dart';
 import 'package:electronic_shop/presentaion/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:electronic_shop/theme/theme_palatte.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,7 +46,10 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const BottomNavBar(),
+      home: ChangeNotifierProvider<ProductProvider>(
+        create: (_) => ProductProvider(),
+        child: const BottomNavBar(),
+      ),
     );
   }
 }

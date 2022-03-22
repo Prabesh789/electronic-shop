@@ -1,9 +1,22 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:electronic_shop/infrastructure/product/repositories/product_repository.dart';
 import 'package:electronic_shop/theme/theme_palatte.dart';
 import 'package:flutter/material.dart';
 
-class ProductScreen extends StatelessWidget {
+class ProductScreen extends StatefulWidget {
   const ProductScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ProductScreen> createState() => _ProductScreenState();
+}
+
+class _ProductScreenState extends State<ProductScreen> {
+  final productRepository = ProductRepository();
+  @override
+  void initState() {
+    productRepository.electronicProducts();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

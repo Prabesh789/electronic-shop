@@ -1,6 +1,6 @@
 import 'package:electronic_shop/application/product_provider.dart';
 import 'package:electronic_shop/presentaion/bottom_nav_bar/bottom_nav_bar.dart';
-import 'package:electronic_shop/theme/theme_palatte.dart';
+import 'package:electronic_shop/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,28 +21,33 @@ class MyApp extends StatelessWidget {
         textTheme: const TextTheme(
           headline1: TextStyle(
             fontSize: 25,
-            color: ThemePalate.blackColor,
+            color: AppColors.blackColor,
             fontWeight: FontWeight.bold,
           ),
           headline2: TextStyle(
             fontSize: 20.0,
             fontWeight: FontWeight.w500,
-            color: ThemePalate.blackColor,
+            color: AppColors.whiteColor,
           ),
           headline3: TextStyle(
-            fontSize: 20.0,
+            fontSize: 14.0,
             fontWeight: FontWeight.w500,
-            color: ThemePalate.whiteColor,
+            color: AppColors.blackColor,
           ),
           bodyText1: TextStyle(
             fontSize: 20,
-            color: ThemePalate.blackColor,
+            color: AppColors.blackColor,
             fontWeight: FontWeight.bold,
           ),
           bodyText2: TextStyle(
-            fontSize: 18,
-            color: ThemePalate.blackColor,
-            fontWeight: FontWeight.w600,
+            fontSize: 12.0,
+            fontWeight: FontWeight.w500,
+            color: AppColors.blackColor,
+          ),
+          subtitle1: TextStyle(
+            fontSize: 12.0,
+            fontWeight: FontWeight.w400,
+            color: AppColors.blackColor,
           ),
         ),
       ),

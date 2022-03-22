@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ThemePalate {
+class AppColors {
   static const redColor = Colors.red;
   static const yellowColor = Colors.yellow;
   static const greyColor = Colors.grey;
@@ -8,4 +8,6 @@ class ThemePalate {
   static const whiteColor = Colors.white;
   static const deepOrangeColor = Colors.deepOrange;
   static const deepOrangeShadeColor = Color(0xFFFFAB91);
+  static const blueColor = Colors.blue;
+  static const deepblueColor = Color(0xFF01579B);
 }

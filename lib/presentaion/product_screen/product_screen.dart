@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:electronic_shop/application/product_provider.dart';
 import 'package:electronic_shop/infrastructure/product/repositories/product_repository.dart';
 import 'package:electronic_shop/infrastructure/services/endpoints.dart';
-import 'package:electronic_shop/theme/theme_palatte.dart';
+import 'package:electronic_shop/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -43,19 +43,19 @@ class _ProductScreenState extends State<ProductScreen> {
           child: Center(
             child: Text(
               'Electronic product',
-              style: Theme.of(context).textTheme.headline3,
+              style: Theme.of(context).textTheme.headline2,
             ),
           ),
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                ThemePalate.redColor,
-                ThemePalate.yellowColor,
+                AppColors.blueColor,
+                AppColors.redColor,
               ],
             ),
             boxShadow: [
               BoxShadow(
-                color: ThemePalate.greyColor,
+                color: AppColors.greyColor,
                 blurRadius: 20.0,
                 spreadRadius: 1.0,
               )
@@ -79,21 +79,86 @@ class _ProductScreenState extends State<ProductScreen> {
                 itemCount: provider.productListLength,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 5 / 7,
+                  childAspectRatio: 4.2 / 7,
                   crossAxisSpacing: 20,
                   mainAxisSpacing: 20,
                 ),
                 itemBuilder: (context, index) {
-                  var electronicProduct = provider.getProductByIndex(index);
+                  final electronicProduct = provider.getProductByIndex(index);
                   const imgBaseUrl = Endpoints.imgBaseUrl;
+                  // List<Widget> _categories;
+                  // _categories = electronicProduct.category
+                  //     .map(
+                  //       (names) => Container(
+                  //         padding: const EdgeInsets.all(4.0),
+                  //         color: Colors.white,
+                  //         child: Text(
+                  //           names,
+                  //           textScaleFactor: 1.2,
+                  //           textAlign: TextAlign.center,
+                  //         ),
+                  //         width: double.infinity,
+                  //         height: double.infinity,
+                  //       ),
+                  //     )
+                  //     .toList();
                   return Container(
-                    color: ThemePalate.whiteColor,
-                    child: ClipRRect(
+                    decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(13),
-                      child: CachedNetworkImage(
-                        fit: BoxFit.cover,
-                        imageUrl: '$imgBaseUrl${electronicProduct.image}',
-                      ),
+                      color: AppColors.whiteColor,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(13),
+                          child: CachedNetworkImage(
+                            imageUrl: '$imgBaseUrl${electronicProduct.image}',
+                          ),
+                        ),
+                        const Spacer(),
+                        Text(
+                          electronicProduct.name,
+                          style: Theme.of(context).textTheme.headline3,
+                        ),
+                        const SizedBox(height: 5),
+                        // SizedBox(
+                        //   height: 14,
+                        //   child: ListView.builder(
+                        //     scrollDirection: Axis.horizontal,
+                        //     shrinkWrap: true,
+                        //     itemCount: electronicProduct.category.length,
+                        //     itemBuilder: (context, item) {
+                        //       final productCategories =
+                        //           electronicProduct.category[item];
+                        //       return Wrap(
+                        //         children: [
+                        //           Padding(
+                        //             padding: const EdgeInsets.symmetric(
+                        //               horizontal: 4,
+                        //             ),
+                        //             child: Text(productCategories),
+                        //           ),
+                        //         ],
+                        //       );
+                        //     },
+                        //   ),
+                        // ),
+                        productDetails(
+                          context: context,
+                          title: 'Price: ',
+                          productDetails: electronicProduct.price,
+                        ),
+                        productDetails(
+                          context: context,
+                          title: 'Stock: ',
+                          productDetails: electronicProduct.stock.toString(),
+                        ),
+                        const SizedBox(height: 7),
+                        ElevatedButton(
+                            onPressed: () {}, child: const Text('Add to cart'))
+                      ],
                     ),
                   );
                 },
@@ -104,6 +169,26 @@ class _ProductScreenState extends State<ProductScreen> {
           }
         },
       ),
+    );
+  }
+
+  Widget productDetails({
+    required BuildContext context,
+    required String productDetails,
+    required String title,
+  }) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          title,
+          style: Theme.of(context).textTheme.bodyText2,
+        ),
+        Text(
+          productDetails,
+          style: Theme.of(context).textTheme.subtitle1,
+        ),
+      ],
     );
   }
 }

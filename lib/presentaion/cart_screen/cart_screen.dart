@@ -1,4 +1,4 @@
-import 'package:electronic_shop/theme/theme_palatte.dart';
+import 'package:electronic_shop/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatelessWidget {
@@ -20,13 +20,13 @@ class CartScreen extends StatelessWidget {
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                ThemePalate.redColor,
-                ThemePalate.yellowColor,
+                AppColors.redColor,
+                AppColors.yellowColor,
               ],
             ),
             boxShadow: [
               BoxShadow(
-                color: ThemePalate.greyColor,
+                color: AppColors.greyColor,
                 blurRadius: 20.0,
                 spreadRadius: 1.0,
               )

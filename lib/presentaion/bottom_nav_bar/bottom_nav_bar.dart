@@ -1,6 +1,6 @@
 import 'package:electronic_shop/presentaion/cart_screen/cart_screen.dart';
 import 'package:electronic_shop/presentaion/product_screen/product_screen.dart';
-import 'package:electronic_shop/theme/theme_palatte.dart';
+import 'package:electronic_shop/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -43,12 +43,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
             onTap: _onTap,
             elevation: 10.0,
             type: BottomNavigationBarType.fixed,
-            backgroundColor: ThemePalate.deepOrangeShadeColor,
+            backgroundColor: AppColors.blueColor,
             iconSize: 27,
             showSelectedLabels: true,
             showUnselectedLabels: true,
-            selectedItemColor: ThemePalate.deepOrangeColor,
-            unselectedItemColor: ThemePalate.whiteColor,
+            selectedItemColor: AppColors.deepblueColor,
+            unselectedItemColor: AppColors.whiteColor,
             unselectedLabelStyle:
                 Theme.of(context).textTheme.bodyText1?.copyWith(
                       fontSize: 12,

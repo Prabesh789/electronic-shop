@@ -46,9 +46,11 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: ChangeNotifierProvider<ProductProvider>(
-        create: (_) => ProductProvider(),
-        child: const BottomNavBar(),
+      home: Scaffold(
+        body: ChangeNotifierProvider<ProductProvider>(
+          create: (_) => ProductProvider(),
+          child: const BottomNavBar(),
+        ),
       ),
     );
   }

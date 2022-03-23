@@ -27,6 +27,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: AnimatedSwitcher(
         switchInCurve: Curves.fastOutSlowIn,
         duration: const Duration(milliseconds: 700),
@@ -67,7 +68,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               ),
               BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.production_quantity_limits,
+                  Icons.shopping_cart,
                 ),
                 label: 'Cart',
               ),

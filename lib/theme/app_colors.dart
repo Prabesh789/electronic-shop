@@ -10,4 +10,5 @@ class AppColors {
   static const deepOrangeShadeColor = Color(0xFFFFAB91);
   static const blueColor = Colors.blue;
   static const deepblueColor = Color(0xFF01579B);
+  static const deemBlueColor = Color(0xFFE3F2FD);
 }

@@ -1,4 +1,5 @@
-import 'package:electronic_shop/theme/app_colors.dart';
+import 'package:electronic_shop/core/custom_apbar.dart';
+import 'package:electronic_shop/core/custom_product_card.dart';
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatelessWidget {
@@ -9,31 +10,21 @@ class CartScreen extends StatelessWidget {
     final mediaQuery = MediaQuery.of(context);
     return Scaffold(
       appBar: PreferredSize(
-        child: Container(
-          padding: EdgeInsets.only(top: mediaQuery.padding.top),
-          child: Center(
-            child: Text(
-              'Your cart',
-              style: Theme.of(context).textTheme.headline3,
-            ),
-          ),
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                AppColors.redColor,
-                AppColors.yellowColor,
-              ],
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.greyColor,
-                blurRadius: 20.0,
-                spreadRadius: 1.0,
-              )
-            ],
-          ),
+        child: CustomAppBar(
+          mediaQuery: mediaQuery,
+          onPressed: () {},
+          title: 'Cart',
         ),
         preferredSize: Size(mediaQuery.size.width, kToolbarHeight),
+      ),
+      body: CustomProductCard(
+        imgUrl: '',
+        productName: '',
+        productCategory: '',
+        productPrice: '',
+        productStock: '',
+        buttonText: '',
+        onPressed: () {},
       ),
     );
   }

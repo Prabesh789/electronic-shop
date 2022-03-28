@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HideWidget extends StatefulWidget {
-  const HideWidget({
+class ProductSearchBar extends StatefulWidget {
+  const ProductSearchBar({
     Key? key,
     required this.scrollController,
     required this.widget,
@@ -11,10 +11,10 @@ class HideWidget extends StatefulWidget {
   final Widget widget;
 
   @override
-  State<HideWidget> createState() => _HideWidgetState();
+  State<ProductSearchBar> createState() => _ProductSearchBarState();
 }
 
-class _HideWidgetState extends State<HideWidget> {
+class _ProductSearchBarState extends State<ProductSearchBar> {
   bool makeVisible = true;
 
   @override

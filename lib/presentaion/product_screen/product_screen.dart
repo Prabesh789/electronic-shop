@@ -69,18 +69,18 @@ class _ProductScreenState extends State<ProductScreen> {
             onTap: () {
               FocusScope.of(context).unfocus();
             },
-            child: SmartRefresher(
-              controller: _refreshController,
-              enablePullDown: true,
-              enablePullUp: false,
-              // ignore: prefer_const_constructors
-              header: ClassicHeader(),
-              onRefresh: () {
-                _fetchProducts();
-              },
-              child: Stack(
-                children: [
-                  (provider.productLoading)
+            child: Stack(
+              children: [
+                SmartRefresher(
+                  controller: _refreshController,
+                  enablePullDown: true,
+                  enablePullUp: false,
+                  // ignore: prefer_const_constructors
+                  header: ClassicHeader(),
+                  onRefresh: () {
+                    _fetchProducts();
+                  },
+                  child: (provider.productLoading)
                       ? const Center(
                           child: CircularProgressIndicator(),
                         )
@@ -105,57 +105,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                 final electronicProduct =
                                     provider.getProductByIndex(index);
                                 const imgBaseUrl = Endpoints.imgBaseUrl;
-                                return
-                                    // Container(
-                                    //   decoration: BoxDecoration(
-                                    //     borderRadius: BorderRadius.circular(13),
-                                    //     color: AppColors.whiteColor,
-                                    //   ),
-                                    //   child: Column(
-                                    //     mainAxisAlignment: MainAxisAlignment.center,
-                                    //     crossAxisAlignment:
-                                    //         CrossAxisAlignment.center,
-                                    //     children: [
-                                    //       ClipRRect(
-                                    //         borderRadius: BorderRadius.circular(13),
-                                    //         child: CachedNetworkImage(
-                                    //           imageUrl:
-                                    //               '$imgBaseUrl${electronicProduct.image}',
-                                    //         ),
-                                    //       ),
-                                    //       const Spacer(),
-                                    //       Text(
-                                    //         electronicProduct.name,
-                                    //         style: Theme.of(context)
-                                    //             .textTheme
-                                    //             .headline3,
-                                    //       ),
-                                    //       const SizedBox(height: 5),
-                                    //       productDetails(
-                                    //         context: context,
-                                    //         title: 'Category: ',
-                                    //         productDetails:
-                                    //             electronicProduct.category[1],
-                                    //       ),
-                                    //       productDetails(
-                                    //         context: context,
-                                    //         title: 'Price: ',
-                                    //         productDetails: electronicProduct.price,
-                                    //       ),
-                                    //       productDetails(
-                                    //         context: context,
-                                    //         title: 'Stock: ',
-                                    //         productDetails:
-                                    //             electronicProduct.stock.toString(),
-                                    //       ),
-                                    //       const SizedBox(height: 7),
-                                    //       ElevatedButton(
-                                    //           onPressed: () {},
-                                    //           child: const Text('Add to cart'))
-                                    //     ],
-                                    //   ),
-                                    // );
-                                    CustomProductCard(
+                                return CustomProductCard(
                                   imgUrl:
                                       '$imgBaseUrl${electronicProduct.image}',
                                   productName: electronicProduct.name,
@@ -170,60 +120,60 @@ class _ProductScreenState extends State<ProductScreen> {
                               },
                             )
                           : const Text('No any product'),
-                  ProductSearchBar(
-                    scrollController: _scrollController,
-                    widget: Container(
-                      height: 50,
-                      margin: const EdgeInsets.symmetric(
-                        vertical: 4,
-                        horizontal: 20,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(13),
-                        color: AppColors.whiteColor,
-                        boxShadow: const [
-                          BoxShadow(
-                            color: AppColors.deemBlueColor,
-                            blurRadius: 20.0,
-                            spreadRadius: 1.0,
-                          )
-                        ],
-                      ),
-                      child: Center(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            const SizedBox(width: 25),
-                            const Icon(Icons.search),
-                            const Spacer(),
-                            SizedBox(
-                              width: mediaQuery.size.width / 1.7,
-                              child: TextField(
-                                cursorColor: AppColors.greyColor,
-                                cursorHeight: 15,
-                                decoration: InputDecoration(
-                                  hintText: 'Search',
-                                  hintStyle: Theme.of(context)
-                                      .textTheme
-                                      .headline3
-                                      ?.copyWith(
-                                        color: AppColors.greyColor,
-                                      ),
-                                  contentPadding: const EdgeInsets.only(top: 5),
-                                  border: InputBorder.none,
-                                ),
+                ),
+                ProductSearchBar(
+                  scrollController: _scrollController,
+                  widget: Container(
+                    height: 50,
+                    margin: const EdgeInsets.symmetric(
+                      vertical: 4,
+                      horizontal: 20,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(13),
+                      color: AppColors.whiteColor,
+                      boxShadow: const [
+                        BoxShadow(
+                          color: AppColors.deemBlueColor,
+                          blurRadius: 20.0,
+                          spreadRadius: 1.0,
+                        )
+                      ],
+                    ),
+                    child: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const SizedBox(width: 25),
+                          const Icon(Icons.search),
+                          const Spacer(),
+                          SizedBox(
+                            width: mediaQuery.size.width / 1.7,
+                            child: TextField(
+                              cursorColor: AppColors.greyColor,
+                              cursorHeight: 15,
+                              decoration: InputDecoration(
+                                hintText: 'Search',
+                                hintStyle: Theme.of(context)
+                                    .textTheme
+                                    .headline3
+                                    ?.copyWith(
+                                      color: AppColors.greyColor,
+                                    ),
+                                contentPadding: const EdgeInsets.only(top: 5),
+                                border: InputBorder.none,
                               ),
                             ),
-                            const Spacer(),
-                            const SizedBox(width: 25),
-                          ],
-                        ),
+                          ),
+                          const Spacer(),
+                          const SizedBox(width: 25),
+                        ],
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         );

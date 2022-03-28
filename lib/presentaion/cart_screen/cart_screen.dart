@@ -1,5 +1,4 @@
 import 'package:electronic_shop/core/custom_apbar.dart';
-import 'package:electronic_shop/core/custom_product_card.dart';
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatelessWidget {
@@ -17,15 +16,7 @@ class CartScreen extends StatelessWidget {
         ),
         preferredSize: Size(mediaQuery.size.width, kToolbarHeight),
       ),
-      body: CustomProductCard(
-        imgUrl: '',
-        productName: '',
-        productCategory: '',
-        productPrice: '',
-        productStock: '',
-        buttonText: '',
-        onPressed: () {},
-      ),
+      body: Container(),
     );
   }
 }

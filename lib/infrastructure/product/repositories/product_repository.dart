@@ -7,8 +7,8 @@ import 'package:http/http.dart' as http;
 
 abstract class IProductRepository {
   Future<ProductResponse> electronicProducts();
-  Future<List<ProductData>> cartProducts({
-    ProductData? productData,
+  Future<List<Product>> cartProducts({
+    Product? product,
   });
 }
 
@@ -31,12 +31,12 @@ class ProductRepository implements IProductRepository {
   }
 
   @override
-  Future<List<ProductData>> cartProducts({
-    ProductData? productData,
+  Future<List<Product>> cartProducts({
+    Product? product,
   }) async {
     try {
-      List<ProductData> cardProductList = [];
-      cardProductList.add(productData!);
+      List<Product> cardProductList = [];
+      cardProductList.add(product!);
       return cardProductList;
     } catch (e) {
       debugPrint('$e');

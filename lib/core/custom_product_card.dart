@@ -65,7 +65,7 @@ class CustomProductCard extends StatelessWidget {
           ),
           const SizedBox(height: 7),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: onPressed,
             child: const Text('Add to cart'),
           )
         ],

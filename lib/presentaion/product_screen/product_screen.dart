@@ -1,6 +1,7 @@
 import 'package:electronic_shop/application/product_provider.dart';
 import 'package:electronic_shop/core/custom_apbar.dart';
 import 'package:electronic_shop/core/custom_product_card.dart';
+import 'package:electronic_shop/infrastructure/product/entities/product_response.dart';
 import 'package:electronic_shop/infrastructure/product/repositories/product_repository.dart';
 import 'package:electronic_shop/infrastructure/services/endpoints.dart';
 import 'package:electronic_shop/presentaion/product_screen/widgets/hide_widget.dart';
@@ -115,7 +116,21 @@ class _ProductScreenState extends State<ProductScreen> {
                                   productStock:
                                       electronicProduct.stock.toString(),
                                   buttonText: 'Add to cart',
-                                  onPressed: () {},
+                                  onPressed: () async {
+                                    final _productList = Product(
+                                      image:
+                                          '$imgBaseUrl${electronicProduct.image}',
+                                      name: electronicProduct.name,
+                                      category: electronicProduct.category,
+                                      createDate: electronicProduct.createDate,
+                                      id: electronicProduct.id,
+                                      price: electronicProduct.price,
+                                      stock: electronicProduct.stock,
+                                    );
+                                    await productRepository.cartProducts(
+                                      product: _productList,
+                                    );
+                                  },
                                 );
                               },
                             )

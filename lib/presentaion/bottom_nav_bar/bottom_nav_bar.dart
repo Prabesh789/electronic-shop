@@ -48,8 +48,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
             iconSize: 27,
             showSelectedLabels: true,
             showUnselectedLabels: true,
-            selectedItemColor: AppColors.deepblueColor,
-            unselectedItemColor: AppColors.whiteColor,
+            selectedItemColor: AppColors.whiteColor,
+            unselectedItemColor: AppColors.deepblueColor,
             unselectedLabelStyle:
                 Theme.of(context).textTheme.bodyText1?.copyWith(
                       fontSize: 12,

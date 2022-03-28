@@ -40,55 +40,65 @@ class CustomProductCard extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          Text(
-            productName,
-            style: Theme.of(context).textTheme.headline3,
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Text(
+                productName,
+                style: Theme.of(context).textTheme.headline3,
+              ),
+            ),
           ),
           const SizedBox(height: 5),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Category: ',
-                style: Theme.of(context).textTheme.bodyText2,
-              ),
-              Text(
-                productCategory,
-                style: Theme.of(context).textTheme.subtitle1,
-              ),
-            ],
+          CustomProductDetails(
+            productTitle: 'Category: ',
+            productDetail: productCategory,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Price: ',
-                style: Theme.of(context).textTheme.bodyText2,
-              ),
-              Text(
-                productPrice,
-                style: Theme.of(context).textTheme.subtitle1,
-              ),
-            ],
+          CustomProductDetails(
+            productTitle: 'Price: ',
+            productDetail: productName,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Stocks: ',
-                style: Theme.of(context).textTheme.bodyText2,
-              ),
-              Text(
-                productStock,
-                style: Theme.of(context).textTheme.subtitle1,
-              ),
-            ],
+          CustomProductDetails(
+            productTitle: 'Stock: ',
+            productDetail: productStock,
           ),
           const SizedBox(height: 7),
           ElevatedButton(
             onPressed: () {},
             child: const Text('Add to cart'),
           )
+        ],
+      ),
+    );
+  }
+}
+
+class CustomProductDetails extends StatelessWidget {
+  const CustomProductDetails({
+    Key? key,
+    required this.productTitle,
+    required this.productDetail,
+  }) : super(key: key);
+
+  final String productDetail;
+  final String productTitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Text(
+            productTitle,
+            style: Theme.of(context).textTheme.bodyText2,
+          ),
+          Text(
+            productDetail,
+            style: Theme.of(context).textTheme.subtitle1,
+          ),
         ],
       ),
     );
